@@ -43,6 +43,16 @@ namespace JobService.Controllers
             return Ok(job);
         }
 
+        [Authorize]
+        [HttpGet]
+        public IActionResult GetJobs() 
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null) return BadRequest("User does not exist! " + User.Claims);
+            var jobs = _context.JobApplications.Where(j => j.UserId == int.Parse(userId)).ToList();
+            return Ok(jobs);
+        }
+
         [HttpGet("test")]
         public IActionResult test() {
             return Ok("[JobService]: This endpoint works!");
