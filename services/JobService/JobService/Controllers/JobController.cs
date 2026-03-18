@@ -8,7 +8,7 @@ using System.Security.Claims;
 namespace JobService.Controllers
 {
     //[Route("api/[controller]")]
-    [Route("api/job")]
+    [Route("api/jobs")]
     [ApiController]
     public class JobController : ControllerBase
     {
@@ -41,6 +41,11 @@ namespace JobService.Controllers
             _context.SaveChanges();
 
             return Ok(job);
+        }
+
+        [HttpGet("test")]
+        public IActionResult test() {
+            return Ok("[JobService]: This endpoint works!");
         }
     }
 }

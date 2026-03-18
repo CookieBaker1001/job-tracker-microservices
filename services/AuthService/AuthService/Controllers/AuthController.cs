@@ -54,5 +54,10 @@ namespace AuthService.Controllers
         {
             return Ok("You are logged in!");
         }
+
+        [HttpGet("test")]
+        public IActionResult Test() {
+            return Ok("[AuthService]: This endpoint works!");
+        }
     }
 }
