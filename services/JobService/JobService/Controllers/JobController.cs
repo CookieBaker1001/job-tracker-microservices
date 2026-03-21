@@ -55,7 +55,9 @@ namespace JobService.Controllers
 
         [HttpGet("test")]
         public IActionResult test() {
-            return Ok("[JobService]: This endpoint works!");
+            Random rand = new Random();
+            int rng = rand.Next(100000);
+            return Ok($"JobService is running, (rng:{rng})");
         }
     }
 }

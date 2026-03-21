@@ -57,7 +57,9 @@ namespace AuthService.Controllers
 
         [HttpGet("test")]
         public IActionResult Test() {
-            return Ok("[AuthService]: This endpoint works!");
+            Random rand = new Random();
+            int rng = rand.Next(100000);
+            return Ok($"AuthService is running, (rng:{rng})");
         }
     }
 }
